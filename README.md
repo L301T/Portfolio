@@ -18,4 +18,4 @@ I’m passionate about solving technical issues and maintaining reliable IT infr
  
 ## Contact  
 - Email: leonardo.buzzoni.9.2gmail.com  
-- LinkedIn: [linkedin.com/in/tuo-profilo](https://linkedin.com/in/tuo-profilo)
+- LinkedIn: [Leonardo Buzzoni](https://www.linkedin.com/in/leonardo-buzzoni-744570275/)
