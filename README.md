@@ -14,7 +14,7 @@ I’m passionate about solving technical issues and maintaining reliable IT infr
 
 ## Projects
 - [Branch office network](https://github.com/L301T/Portfolio/tree/main/networks/rete_con_distaccamento): Site-to-site network with segmentation.  
-- [Ticketing System ](https://github.com/L301T/Portfolio/tree/main/Cloud/CLPI): Setting on CLPI with AWS.  
+- [Service Managment ](https://github.com/L301T/Portfolio/tree/main/Cloud/CLPI): Setting on GLPI with AWS.  
  
 ## Contact  
 - Email: leonardo.buzzoni.9.2gmail.com  
