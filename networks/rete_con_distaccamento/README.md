@@ -1,34 +1,34 @@
-# Descrizione del progetto
+# Project Description
 
-Progettazione e simulazione di un’infrastruttura di rete per una piccola azienda in espansione, composta da una sede principale (LAN rossa) e un ufficio distaccato (LAN verde), interconnessi tramite collegamento WAN simulato.
+Design and simulation of a network infrastructure for a small expanding company, consisting of a main office (Red LAN) and a branch office (Green LAN), interconnected through a simulated WAN link.
 
-La topologia è stata realizzata in Cisco Packet Tracer con l’obiettivo di garantire:
+The topology was created using Cisco Packet Tracer with the goal of ensuring:
 
-- Comunicazione interna nella stessa sede (intranet locale).
-- Comunicazione affidabile tra le due sedi, compreso l’accesso ai servizi di rete (es. server) da qualsiasi endpoint.
+- Internal communication within the same office (local intranet).
+- Reliable communication between the two offices, including access to network services (e.g., servers) from any endpoint.
 
-## Componenti principali
+## Main Components
 
-- Router per ciascuna sede con configurazione IP e instradamento statico.
-- Switch per segmentare la rete locale e ottimizzare la distribuzione del traffico.
-- Server centralizzato presso la sede principale (servizi condivisi).
-- Stampanti di rete per entrambe le sedi.
-- WAN simulata per collegamento tra router.
+- Router for each office with IP configuration and static routing.
+- Switches to segment the local network and optimize traffic distribution.
+- Centralized server located at the main office (shared services).
+- Network printers for both offices.
+- Simulated WAN link connecting the routers.
 
-## Configurazione IP
+## IP Configuration
 
-- Sede principale: `192.168.1.0/24`
-- Ufficio distaccato: `192.168.2.0/24`
-- Collegamento WAN: rete point-to-point `192.168.12.0/30`
+- Main office: `192.168.1.0/24`
+- Branch office: `192.168.2.0/24`
+- WAN link: point-to-point network `192.168.12.0/30`
 
-## Risultati dei test
+## Test Results
 
-- Ping riuscito tra i dispositivi delle due sedi (es. `192.168.1.3 → 192.168.2.2`).
-- Nessuna perdita di pacchetti, tempi di risposta medi inferiori a 5 ms.
+- Successful ping between devices in both offices (e.g., `192.168.1.3 → 192.168.2.2`).
+- No packet loss, average response times under 5 ms.
 
-## Competenze dimostrate
+## Demonstrated Skills
 
-- Progettazione topologia di rete.
-- Configurazione di router e switch in Packet Tracer.
-- Gestione subnetting e instradamento statico.
-- Test e troubleshooting con strumenti di diagnostica (Ping).
+- Network topology design.
+- Router and switch configuration using Packet Tracer.
+- Subnetting management and static routing.
+- Testing and troubleshooting with diagnostic tools (Ping).
