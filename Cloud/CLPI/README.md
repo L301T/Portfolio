@@ -1,4 +1,4 @@
-nstallation and Configuration of GLPI on AWS EC2 Debian
+Installation and Configuration of GLPI on AWS EC2 Debian
 Goal: Install and configure GLPI (open-source ticketing system) on an AWS EC2 instance running Debian.
 
 Steps Performed:
