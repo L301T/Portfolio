@@ -6,7 +6,7 @@ Steps Performed:
 
 1. Launched an AWS EC2 t3.micro instance with Debian.
 2. Obtained public IP: 13.61.179.151.
-3. Downloaded PEM key file `ender.pem` for SSH authentication.
+3. Downloaded PEM key file `3nd35.pem` for SSH authentication.
 4. Connected from Windows PowerShell with:
 ssh -i C:\Users\YourUsername\Desktop\ender.pem admin@13.61.179.151  
 (Replace `YourUsername` and IP address with your own details)
