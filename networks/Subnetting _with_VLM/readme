@@ -29,15 +29,7 @@ Starting from a single IP network, the goal was to optimize and distribute IP ad
 
 Each subnet must reserve one address for the network ID and one for the broadcast, so the formula used to calculate the number of available hosts is:
 
-Hosts
-=
-2
-𝑛
-−
-2
-Hosts=2
-n
-−2
+2^n-2
 
 Based on the required number of hosts, we determine how many bits to borrow for the network portion, ensuring an efficient use of the available address space.
 By convention, the first usable address in each subnet is assigned to the network devices (e.g., PCs), while the last usable address is reserved for the router’s gateway interface.
