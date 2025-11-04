@@ -13,8 +13,9 @@ I’m passionate about solving technical issues and maintaining reliable IT infr
 - End-user support  
 
 ## Projects
-- [Branch office network](https://github.com/L301T/Portfolio/tree/main/networks/rete_con_distaccamento): Site-to-site network with segmentation.  
-- [Service Managment ](https://github.com/L301T/Portfolio/tree/main/Cloud/CLPI): Setting on GLPI with AWS.  
+- [Branch office network](https://github.com/L301T/Portfolio/tree/main/networks/rete_con_distaccamento): Site-to-site network with segmentation.
+- [Subnetting VLM with ip route] (https://github.com/L301T/Portfolio/tree/main/networks/Subnetting%20_with_VLM): A subnetting progect on a class C ip address with routing demo  
+- [Service Managment ](https://github.com/L301T/Portfolio/tree/main/Cloud/CLPI): Setting on GLPI with AWS.
  
 ## Contact  
 - Email: leonardo.buzzoni.9.2gmail.com  
