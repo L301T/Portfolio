@@ -1,0 +1,33 @@
+For this lab we will use Windows Server 2025 and Oracle VirtualBox as our virtualization platform.
+As a first step, I will proceed with creating a virtual machine. In my case, I have created one for demonstration purposes, to which I will dedicate 8 GB of RAM and 4 processor cores.
+Additionally, I will create a virtual hard disk for the machine with a size of 50 GB, which will be more than sufficient for the purposes of this lab.
+At this point, I will choose the desktop version (with graphical interface) of Windows Server 2025 and, through the guided installation wizard, I will partition my previously created virtual hard disk following the default options.
+Now, once the operating system installation is complete and we've logged in for the first time, we click on "Add roles and Features" from the Server Manager that opens automatically.
+We then click Next to proceed. As Installation Type, for the purposes of this lab it will be perfectly fine to select "Role-based or feature-based installation", which is the most common option for configuring a single server.
+As Destination Server, the default one will work fine, meaning the local server we're working on, since at the moment our idea is to work exclusively locally without involving other network servers.
+As Server Roles, in the next screen, we will add "Active Directory Domain Services".
+When we select this role, a pop-up window will appear asking us to also add the features necessary for AD DS to function: we confirm by clicking "Add Features".
+We will then move to the Features section, where we will double-check that we have Group Policy Management selected, as it is an absolutely vital and fundamental part of the project we are implementing.
+Group Policy will in fact allow us to centrally manage security configurations and settings for all users and computers in the domain.
+At this point we will click Next again, reading the information that the wizard presents to us on the various screens, until the "Install" button finally appears.
+By clicking Install, our installation of the selected roles and features will finally begin and we can follow the progress through the progress bar.
+At this point we will be on the installation results screen.
+As a practical lab exercise, to complete the configuration, we can go further and click on the blue link "Promote this server to a domain controller", which will allow us to actually configure Active Directory and promote our server to the Domain Controller role.
+In this lab, on the Deployment Configuration screen, I will add the Domain Controller to a new forest, selecting the "Add a new forest" option and specifying a root domain name, for example "lab.local" or whatever name you prefer for your test environment.
+As Domain Controller Options, in the case of this lab I will use Windows Server 2025 for both available options (Forest Functional Level and Domain Functional Level), thus ensuring compatibility with all the latest features.
+However, nothing prevents you from changing these options and selecting previous versions, as long as you don't use an older version for the Forest Functional Level compared to the Domain Functional Level.
+It's also important to leave the "Domain Name System (DNS) server" and "Global Catalog (GC)" options selected, which are fundamental for the proper functioning of the domain.
+I will then carefully choose the Directory Services Restore Mode (DSRM) password, which will be necessary in case of emergency Active Directory recovery.
+This password should be noted in a safe place as it will only be required in critical recovery situations.
+The DNS Options section may show a warning that we can ignore in a lab environment.
+Continuing, the Additional Options section will show the NetBIOS domain name that is automatically generated.
+Subsequently, in the Paths section, we will find the default paths for the Active Directory database, log files, and the SYSVOL folder.
+These paths, in the case of our lab, already meet our expectations and don't require any changes, so we can leave them as they are.
+We then click Next and we will have a Review Options screen where we can verify all the choices made.
+Continuing further, a Prerequisites Check will automatically start, which will verify whether the system meets all the necessary requirements to become a Domain Controller.
+Some warnings may appear (for example regarding password security settings or DNS delegation), but generally in a lab environment they can be ignored.
+If there are no critical errors, we can proceed with the installation by clicking Install.
+After completing our prerequisites checklist and finishing the installation, the system will automatically request a reboot, or I strongly recommend performing a manual reboot to ensure that all changes are applied correctly.
+Afterwards, to facilitate daily work with Active Directory, I suggest adding to the taskbar the administration tools that we will use most often, such as DNS Manager (to manage DNS zones and records), Active Directory Users and Computers (for managing users, groups, and organizational units), and Group Policy Management (to create and manage group policies).
+This way we will have quick access to all essential tools.
+At this point, our Windows Server 2025 will be fully configured as a Domain Controller and will have a working environment similar to the one shown in the following screenshots, ready to be used for lab activities and experimentation with Active Directory.
