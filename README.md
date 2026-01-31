@@ -14,7 +14,7 @@ I’m passionate about solving technical issues and maintaining reliable IT infr
 
 ## Projects
 - [Branch office network](https://github.com/L301T/Portfolio/tree/main/networks/rete_con_distaccamento): Site-to-site network with segmentation.
-- https://github.com/L301T/Portfolio/tree/ce10ccaa2c98c5a4f85b7a25897228427e555784/networks/Subnetting%20_with_VLM : A subnetting progect on a class C ip address with routing demo  
+- #[Subnetting]# https://github.com/L301T/Portfolio/tree/ce10ccaa2c98c5a4f85b7a25897228427e555784/networks/Subnetting%20_with_VLM : A subnetting progect on a class C ip address with routing demo  
 - [Service Managment ](https://github.com/L301T/Portfolio/tree/main/Cloud/CLPI): Setting on GLPI with AWS.
 - [Windows Server 2025 wirh Active Directory] (https://github.com/L301T/Portfolio/tree/main/WindowsServer/install) : Install and setup a virtual lab as domain controller
 ## Contact  
