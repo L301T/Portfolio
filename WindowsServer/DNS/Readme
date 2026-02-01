@@ -8,3 +8,25 @@ At this point we will be able to manually configure the static IPv4 address, the
 At this point we need to ensure that our laboratory server is capable of resolving common public addresses as well, because at this moment an ICMP request to google.com would fail since our DNS server doesn't know how to resolve external domains. To address this issue, we type DNS Manager in the search bar next to the Start icon or we can select it if we have already added it to the taskbar.
 Once DNS Manager is open, we right-click on our server name and then select Properties. In the window that appears, we select the Forwarders tab and click Edit to manage forwarding to public DNS servers. Here we can add one or more public DNS servers to which our server will forward queries for domains it cannot resolve on its own. We save our configuration by clicking OK.
 Now it's time to verify that everything is functioning correctly through ICMP testing. We will verify connectivity to both local and remote addresses to ensure that DNS resolution and routing are working properly.
+
+Troubleshooting
+Common Issues:
+DNS resolution fails for external domains:
+Verify that forwarders are correctly configured in DNS Manager
+Check that the server has internet connectivity (ping 8.8.8.8)
+Ensure Windows Firewall is not blocking DNS traffic
+Cannot ping gateway:
+Verify the default gateway address is correct for your network
+Check VirtualBox network adapter configuration
+Ensure bridged adapter is using the correct host adapter
+DNS service not responding:
+
+Verify DNS Server service is running: Get-Service DNS in PowerShell
+Check Event Viewer for DNS-related errors
+Restart DNS service if needed: Restart-Service DNS
+
+
+Conclusion
+This laboratory demonstrates the fundamental configuration of a DNS server in a virtual environment.
+The server is now capable of resolving both local queries and forwarding external domain queries to public DNS servers.
+This setup represents a basic but functional DNS infrastructure suitable for testing and learning environments.
