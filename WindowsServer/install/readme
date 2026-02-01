@@ -1,4 +1,5 @@
 For this lab we will use Windows Server 2025 and Oracle VirtualBox as our virtualization platform.
+
 As a first step, I will proceed with creating a virtual machine. In my case, I have created one for demonstration purposes, to which I will dedicate 8 GB of RAM and 4 processor cores.
 Additionally, I will create a virtual hard disk for the machine with a size of 50 GB, which will be more than sufficient for the purposes of this lab.
 At this point, I will choose the desktop version (with graphical interface) of Windows Server 2025 and, through the guided installation wizard, I will partition my previously created virtual hard disk following the default options.
@@ -31,3 +32,29 @@ After completing our prerequisites checklist and finishing the installation, the
 Afterwards, to facilitate daily work with Active Directory, I suggest adding to the taskbar the administration tools that we will use most often, such as DNS Manager (to manage DNS zones and records), Active Directory Users and Computers (for managing users, groups, and organizational units), and Group Policy Management (to create and manage group policies).
 This way we will have quick access to all essential tools.
 At this point, our Windows Server 2025 will be fully configured as a Domain Controller and will have a working environment similar to the one shown in the following screenshots, ready to be used for lab activities and experimentation with Active Directory.
+## Troubleshooting
+
+During the setup process, you might encounter some common issues. Here are the most frequent ones and their solutions:
+
+**DNS Delegation Warning During DC Promotion**
+If you see a warning about DNS delegation during the Domain Controller promotion, you can safely ignore it in a lab environment. This warning appears because there's no parent DNS zone to delegate to, which is expected in an isolated lab setup.
+
+**Prerequisites Check Fails**
+If the prerequisites check shows critical errors, verify that:
+- The server has a static IP address assigned (not DHCP)
+- The server name doesn't contain special characters or spaces
+- There's sufficient disk space (at least 50 GB as recommended)
+- Windows updates are installed and the system is up to date
+- If adding to an existing domain, the domain must be at least at Windows Server 2016 functional level (this is a requirement for Windows Server 2025 domain controllers)
+
+**Unable to Log In After Promotion**
+After the server is promoted to Domain Controller, make sure you're logging in with the correct format: DOMAIN\Administrator (for example, LAB\Administrator) rather than just Administrator. The login context has changed from local to domain authentication.
+
+**Group Policy Management Console Not Appearing**
+If the Group Policy Management Console doesn't appear in your administrative tools after installation, this usually means the management tools weren't included during the AD DS role installation. Go back to Server Manager, select "Add Roles and Features", navigate to Features, and verify that "Group Policy Management" is checked and installed. Note that if you selected "Include management tools" during the initial AD DS role installation, this should already be installed.
+
+**Active Directory Services Not Starting**
+If Active Directory Domain Services fail to start after reboot, check the Event Viewer (Windows Logs > System and Applications and Services Logs > Directory Service) for specific error messages. Common causes include DNS misconfiguration or issues with the SYSVOL folder permissions.
+
+**Time Synchronization Issues**
+Time synchronization is critical for Active Directory. If you experience authentication issues, verify that the Domain Controller is configured as a reliable time source. You can configure this using the command: `w32tm /config /manualpeerlist:time.windows.com /syncfromflags:manual /reliable:yes /update`
