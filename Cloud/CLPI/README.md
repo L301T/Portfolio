@@ -48,7 +48,7 @@ Why These Steps:
 
 Next Steps:
 
-Open browser and go to http://13.61.179.151/
+Open browser and go to the ip address of our machine
 Follow the GLPI installation wizard and enter database info.
 
 End of guide.
