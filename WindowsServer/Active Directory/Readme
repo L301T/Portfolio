@@ -1,0 +1,255 @@
+#  Active Directory Lab - Multi-Site Enterprise Management
+
+> Hands-on implementation of role-based access control and security policies in a multi-site Active Directory environment
+
+##  Project Overview
+
+This lab demonstrates enterprise-level user and security management using Active Directory Domain Services. Built a realistic two-location company infrastructure implementing the **principle of least privilege** through organizational units, security groups, and Group Policy Objects.
+
+**Key Achievement:** Successfully prevented unauthorized software installations (IIS) for HR departments across both locations using targeted Group Policy, demonstrating practical application of security best practices.
+
+---
+
+
+### 1. Multi-Site OU Structure
+*Two-location infrastructure (London & Venice) with separated departments, users, and workstations*
+
+**Design highlights:**
+- Geographic separation (London/Venice)
+- Department-based organization (IT/HR)
+- Dedicated OUs for Users and Workstations
+- Enables granular policy application
+
+---
+
+### 2. Security Group Creation
+
+*Creating a Global Security Group for department-level access control*
+
+**Configuration:**
+- **Scope:** Global (single-domain users)
+- **Type:** Security (for permissions)
+- **Naming:** Descriptive convention (e.g., "Managers")
+
+---
+
+### 3. User Account Setup
+
+*Security-first user configuration with mandatory password change*
+
+**Security settings:**
+- User must change password at next logon
+- ☐ User cannot change password (disabled)
+- ☐ Password never expires (disabled)
+- ☐ Account is disabled (enabled by default)
+
+---
+
+### 4. User Account Properties
+*Account options including expiration dates and password policies*
+
+**Advanced controls:**
+- Account expiration (set to March 11, 2026 for this demo user)
+- Logon hours restrictions
+- Logon location controls
+- Password policy enforcement
+
+---
+
+### 5. Group Policy - IIS Installation Prevention
+*Policy configured to block IIS installation on HR department computers*
+
+**Policy details:**
+- **Setting:** Prevent IIS installation - **Enabled**
+- **Scope:** Computer Configuration
+- **Target:** Windows Server 2003+ (applies to modern servers)
+- **Purpose:** Prevent non-IT staff from installing unnecessary server roles
+
+---
+
+### 6. Group Policy Deployment
+*"NO IIS" policy linked to HR departments in both London and Venice locations*
+
+**Implementation:**
+- Policy applied to: `London/HR` and `Venice/HR` OUs
+- Configuration: Computer Configuration (applies regardless of user)
+- Status: Enabled and enforced
+- Result: HR workstations cannot install IIS
+
+---
+
+##  Technical Implementation
+
+### Infrastructure Design
+```
+practicelab.com (Domain)
+│
+├──  London
+│   ├── 👥 Users
+│   ├── 💻 Workstation
+│   ├── 🏢 IT
+│   └── 🏢 HR
+│       └── 🔒 GPO: NO IIS (linked)
+│
+└──  Venice
+    ├── 👥 Users
+    ├── 💻 Workstation
+    ├── 🏢 IT
+    └── 🏢 HR
+        └── 🔒 GPO: NO IIS (linked)
+```
+
+---
+
+### Security Groups Strategy
+
+| Group Type | Scope | Use Case |
+|------------|-------|----------|
+| **Security** | Global | Department-level access (single domain) |
+| **Security** | Universal | Cross-location aggregation |
+| **Distribution** | N/A | Email only (not for permissions) |
+
+**Example groups created:**
+- IT_London (Global Security)
+- HR_London (Global Security)
+- IT_Venice (Global Security)
+- HR_Venice (Global Security)
+
+---
+
+### Group Policy Objects
+
+#### GPO: "NO IIS" - Prevent IIS Installation
+
+**Purpose:** Block HR departments from installing Internet Information Services
+
+**Configuration Path:**
+```
+Computer Configuration
+└── Policies
+    └── Administrative Templates
+        └── Windows Components
+            └── Internet Information Services
+                └── Prevent IIS installation: Enabled
+```
+
+**Deployment:**
+- **Linked to:** London/HR and Venice/HR OUs
+- **Enforcement:** Computer-level (applies to all users on HR machines)
+- **Scope:** Windows Server 2003 and later
+
+**Why this matters:**
+- HR staff don't need web server capabilities
+- Reduces attack surface
+- Prevents accidental misconfiguration
+- Demonstrates least privilege principle
+
+---
+
+##  Security Principles Applied
+
+### Least Privilege
+Every user receives only the minimum permissions needed for their role. No excessive administrative rights.
+
+###  Role-Based Access Control (RBAC)
+Permissions assigned through security groups, never directly to individual users. Enables scalable management.
+
+###  Defense in Depth
+Multiple security layers:
+1. **Account level:** Password policies, expiration dates
+2. **Group level:** Membership-based permissions
+3. **OU level:** Organizational separation
+4. **Policy level:** GPO restrictions (like IIS block)
+
+### Separation of Duties
+Department-specific restrictions ensure IT and HR have different capabilities aligned with their responsibilities.
+
+---
+
+## Skills Demonstrated
+
+**Active Directory Administration:**
+- Multi-site OU structure design
+- User account lifecycle management
+- Security group creation and scope selection
+- Group membership management
+
+**Group Policy Management:**
+- GPO creation and configuration
+- Policy linking to organizational units
+- Computer vs User configuration
+- Policy inheritance and enforcement
+
+**Security Best Practices:**
+- Implementing least privilege principle
+- Role-based access control design
+- Security policy enforcement
+- Attack surface reduction
+
+**Windows Server:**
+- AD DS configuration and management
+- Server role management awareness
+- Administrative tools (ADUC, GPMC)
+
+---
+
+## Lab Environment
+
+| Component | Technology |
+|-----------|------------|
+| **OS** | Windows Server 2025 Standard |
+| **Service** | Active Directory Domain Services (AD DS) |
+| **Domain** | practicelab.com |
+| **Locations** | 2 (London, Venice) |
+| **Departments** | 4 (IT & HR per location) |
+| **Tools** | Active Directory Users & Computers, Group Policy Management Console |
+| **Virtualization** | Oracle VirtualBox |
+
+---
+
+## What I Learned
+
+### Technical Insights
+- **OU design impacts everything:** Structure determines GPO inheritance and delegation possibilities
+- **Group scope matters:** Global for single-domain, Universal for cross-domain scenarios
+- **Computer vs User configuration:** Computer policies apply regardless of who logs in
+- **Security vs Distribution groups:** Only Security groups can assign permissions
+
+### Practical Skills
+- Creating realistic organizational structures in AD
+- Applying security policies that balance protection with usability
+- Troubleshooting GPO application and inheritance
+- Documenting infrastructure decisions
+
+### Professional Development
+- How to translate business requirements into technical controls
+- Importance of least privilege in real-world scenarios
+- Value of clear naming conventions and organizational standards
+
+
+**Advanced goals:**
+- [ ] Integrate with Azure AD Connect
+- [ ] Set up AD Certificate Services (PKI)
+- [ ] Configure Active Directory Federation Services (AD FS)
+- [ ] Implement tiered administrative model
+
+---
+
+##  Resources Used
+
+**Official Microsoft Documentation:**
+- [Active Directory Domain Services Overview](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
+- [Group Policy Best Practices](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831791(v=ws.11))
+- [Securing Active Directory](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
+
+**Security Standards:**
+- NIST Cybersecurity Framework
+- CIS Benchmarks for Windows Server
+
+This lab was created as a hands-on learning experience to develop enterprise-level Active Directory skills. It demonstrates practical knowledge of identity management, security policy enforcement, and Windows Server administration in a realistic business context.
+
+**Looking for opportunities in:**
+- System Administration
+- IT Support
+- Active Directory Management
+- Windows Server Infrastructure
