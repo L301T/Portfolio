@@ -17,6 +17,7 @@ I’m passionate about solving technical issues and maintaining reliable IT infr
 - [Service Management](https://github.com/L301T/Portfolio/tree/main/Cloud/CLPI): Setting up GLPI with AWS.
 - [Windows Server 2025 with Active Directory](https://github.com/L301T/Portfolio/tree/main/WindowsServer/install): Install and setup of a virtual lab as domain controller.
 - [DNS on Windows Server](https://github.com/L301T/Portfolio/tree/main/WindowsServer/DNS): Set up the DNS service on the previuous virtual lab.
+- [Active Directory Users and Policy Demos](https://github.com/L301T/Portfolio/tree/main/WindowsServer/Active%20Directory): Administration of a virtual enviroment using AD.
 ## Contacts
 - Email: leonardo.buzzoni.9.2gmail.com  
 - LinkedIn: [Leonardo Buzzoni](https://www.linkedin.com/in/leonardo-buzzoni-744570275/)
